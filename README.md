@@ -26,7 +26,7 @@ docker-compose up --build
 
 ## Release Process
 1. Checkout `main` branch
-2. Update version numbers in package.json
+2. Update version numbers in package.json files
 3. Commit changes to `main`
 4. Push changes to main.
 6. Run CI/CD pipelines (In the future).
