@@ -36,6 +36,14 @@ Run the following command to run all three containers (backend, forntend and dat
 docker-compose up --build
 ```
 
+## Known Issues
+1. The applcation uses session storage. This sometimes causes an error in making the user_id. Open in a new incognito window to fix this
+2. The web page does not look exactly like the figma document. This is due to time constraints.
+3. Linting has not been implemented (not mentioned in the assessment document).
+4. Limited unit tests have been implemented to display profieciency(Not mentioned in the assessment document).
+
+
+
 ## Release Process
 1. Checkout `main` branch
 2. Update version numbers in package.json files
