@@ -12,12 +12,6 @@ Go into the backend and frontend directories and run the following command in ea
 npm install
 ```
 
-### Run local server
-```bash
-poe serve
-```
-
-
 ### Run Tests
 ```bash
 # Run Unit Tests
