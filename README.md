@@ -1,4 +1,10 @@
 ## Getting started
+This is a project to calculate the distance betwen two addresses. It uses the Nominatim API for this purpose.
+
+It has a backend, a frontend and database (PostgreSQL)
+
+All three have their own dockerfiles and are containerized and run via docker compose.
+
 
 ### Setting up a development environment
 
@@ -13,6 +19,10 @@ npm install
 ```
 
 ### Run Tests
+
+Some tests have been added here (although not required in the document).
+In future, these can be expanded to increase coverage and inlcude integration tests.
+
 ```bash
 # Run Unit Tests
 
