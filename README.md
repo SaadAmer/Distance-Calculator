@@ -15,12 +15,14 @@ npm install
 ### Run Tests
 ```bash
 # Run Unit Tests
+
 npm test
 ```
 
 ### Run Docker instance of Postgres Database
 Run the following command to run all three containers (backend, forntend and database)
 ```bash
+
 docker-compose up --build
 ```
 
