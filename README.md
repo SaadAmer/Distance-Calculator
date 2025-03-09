@@ -18,6 +18,8 @@ Go into the backend and frontend directories and run the following command in ea
 npm install
 ```
 
+In case you want to run the components without docker, you will need Node.js 18, and PostgreSQL 17
+
 ### Run Tests
 
 Some tests have been added here (although not required in the document).
