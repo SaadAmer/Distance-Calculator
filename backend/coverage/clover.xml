@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1741541171161" clover="3.2.0">
-  <project timestamp="1741541171161" name="All files">
+<coverage generated="1741561899820" clover="3.2.0">
+  <project timestamp="1741561899820" name="All files">
     <metrics statements="66" coveredstatements="42" conditionals="19" coveredconditionals="15" methods="9" coveredmethods="4" elements="94" coveredelements="61" complexity="0" loc="66" ncloc="66" packages="1" files="5" classes="5"/>
     <file name="config.js" path="/Users/saad.amer/Desktop/Repos/bain/assignment/backend/src/config.js">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -53,10 +53,10 @@
       <line num="93" count="0" type="stmt"/>
       <line num="95" count="0" type="stmt"/>
       <line num="96" count="0" type="stmt"/>
-      <line num="107" count="1" type="stmt"/>
-      <line num="108" count="0" type="stmt"/>
-      <line num="109" count="0" type="stmt"/>
-      <line num="112" count="1" type="stmt"/>
+      <line num="109" count="1" type="stmt"/>
+      <line num="110" count="0" type="stmt"/>
+      <line num="111" count="0" type="stmt"/>
+      <line num="114" count="1" type="stmt"/>
     </file>
     <file name="utils.js" path="/Users/saad.amer/Desktop/Repos/bain/assignment/backend/src/utils.js">
       <metrics statements="22" coveredstatements="15" conditionals="5" coveredconditionals="4" methods="4" coveredmethods="2"/>
