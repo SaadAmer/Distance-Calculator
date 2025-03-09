@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  database:
+    build: ./database
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: distance_db
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      no_cache: true
+    container_name: distance_backend
+    restart: always
+    environment:
+      PORT: 3000
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: distance_db
+      POSTGRES_HOST: database
+      POSTGRES_PORT: 5432
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+
+  frontend:
+    build: ./frontend
+    container_name: distance_frontend
+    restart: always
+    environment:
+      VITE_API_URL: http://localhost:3000
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
