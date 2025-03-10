@@ -7,13 +7,13 @@ import request from "supertest";
 import { app } from "../../src/server.js";
 import { jest } from "@jest/globals";
 
-await jest.unstable_mockModule("./src/db.js", () => ({
+await jest.unstable_mockModule("../../src/db.js", () => ({
   pool: {
     query: jest.fn(),
   },
 }));
 
-await jest.unstable_mockModule("./src/utils.js", () => ({
+await jest.unstable_mockModule("../../src/utils.js", () => ({
   geocode: jest.fn(async (address) => {
     if (address.includes("%%%%%%") || address.includes("######")) {
       throw new Error("Invalid addresses provided.");
@@ -23,7 +23,6 @@ await jest.unstable_mockModule("./src/utils.js", () => ({
   calculateDistance: jest.fn(() => 4500),
 }));
 
-const { pool } = await import("../../src/db.js");
 const { geocode, calculateDistance } = await import("../../src/utils.js");
 
 beforeEach(() => {
