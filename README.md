@@ -56,7 +56,10 @@ such as "The famous bridge in London", or "The big opera house in Sydney"
 
 ## Release Process
 1. Checkout `main` branch
-2. Update version numbers in package.json files
-3. Commit changes to `main`
-4. Push changes to main.
-6. Run CI/CD pipelines (In the future).
+2. Create a release branch.
+3. Update version numbers in package.json files
+4. Run all tests
+5. Update CHANGELOG.
+5. Merge into `main`
+6. Tag with new version (In future)
+6. Run CI/CD pipelines (In the future)
