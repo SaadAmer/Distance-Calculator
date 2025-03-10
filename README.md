@@ -56,7 +56,7 @@ such as "The famous bridge in London", or "The big opera house in Sydney"
 1. The applcation uses session storage. This sometimes causes an error in making the user_id. Open in a new incognito window to fix this
 2. The web page does not look exactly like the figma document. This is due to time constraints.
 3. Linting has not been implemented. (not mentioned in the assessment document).
-4. The assessment document does not mention testing, but limited unit tests have been implemented to display profieciency.
+4. The assessment document does not mention testing, but limited unit tests have been implemented to display proficiency.
 
 
 ## Release Process
