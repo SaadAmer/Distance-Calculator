@@ -6,7 +6,19 @@ It has a backend, a frontend and database (PostgreSQL)
 All three have their own dockerfiles and are containerized and run via docker compose.
 
 
-### Setting up a development environment
+### Run Docker instance of Postgres Database
+Run the following command to run all three containers (backend, forntend and database)
+```bash
+docker compose up --build
+
+or
+
+#if using an older standalone version:
+
+docker-compose up --build
+```
+
+### Setting up a development environment locally
 
 You will need Docker and Docker Compose to run this project
 
@@ -29,13 +41,6 @@ In future, these can be expanded to increase coverage and inlcude integration te
 # Run Unit Tests
 
 npm test
-```
-
-### Run Docker instance of Postgres Database
-Run the following command to run all three containers (backend, forntend and database)
-```bash
-
-docker-compose up --build
 ```
 
 ## Possible AI improvements
