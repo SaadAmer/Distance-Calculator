@@ -19,7 +19,7 @@ docker compose up --build
 docker-compose up --build
 ```
 
-navigate to http://localhost:4173/  on a web browser to test.
+Navigate to http://localhost:4173/  on a web browser to test.
 
 ### Setting up a development environment locally
 
