@@ -38,6 +38,14 @@ Run the following command to run all three containers (backend, forntend and dat
 docker-compose up --build
 ```
 
+## Possible AI improvements
+1. Although the Nominatim search endpoint has free form capability, an API call to an LLM could be used to predict locations with prompts
+such as "The famous bridge in London", or "The big opera house in Sydney"
+2. General NLP or LLMs could also be used for autocorrect purposes for example, New Yrok, Lordon, Padis, etc
+3. LLMs could provide additional info such as time to travel, or the travel distance itself
+4. LLMs could call the distance api to integrate its function into larger apps, such as calendars, home automation, etc.
+
+
 ## Known Issues
 1. The applcation uses session storage. This sometimes causes an error in making the user_id. Open in a new incognito window to fix this
 2. The web page does not look exactly like the figma document. This is due to time constraints.

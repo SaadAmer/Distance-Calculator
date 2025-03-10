@@ -28,12 +28,20 @@ export const geocode = async (address, retries = 3) => {
       return { lat: parseFloat(response.data[0].lat), lon: parseFloat(response.data[0].lon) };
 
     } catch (error) {
-      logger.error(`Geocode attempt ${attempt} failed for ${address}: ${error.message}`);
+      const isConnectionError = error.code === "ECONNABORTED" || error.code === "ENOTFOUND" || error.message.includes("Network Error");
+
+      if (!isConnectionError) {
+        logger.error(`Geocode failed for ${address}: ${error.message}`);
+        throw error;
+      }
+
+      logger.warn(`Retrying geocode for ${address} due to connection issue (Attempt ${attempt}/${retries})`);
+
       if (attempt === retries) {
         logger.error(`Failed to geocode address after ${retries} attempts: ${address}`);
-        throw new Error("Invalid addresses provided.");
+        throw new Error("Geocoding failed due to connection issues.");
       }
-      // Exponential backoff (1s, 2s, 3s)
+
       await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
     }
   }
