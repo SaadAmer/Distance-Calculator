@@ -6,7 +6,7 @@ It has a backend, a frontend and database (PostgreSQL)
 All three have their own dockerfiles and are containerized and run via docker compose.
 
 
-### Run Docker instance of Postgres Database
+### Run Docker instance of the Distance Application
 Run the following command to run all three containers (backend, forntend and database)
 
 You will need Docker and Docker Compose to run this project
