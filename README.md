@@ -11,9 +11,7 @@ Run the following command to run all three containers (backend, forntend and dat
 ```bash
 docker compose up --build
 
-or
-
-#if using an older standalone version:
+# or if using an older standalone version:
 
 docker-compose up --build
 ```
