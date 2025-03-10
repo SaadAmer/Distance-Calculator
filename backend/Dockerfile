@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:18-alpine
 
 WORKDIR /app
 
@@ -12,12 +12,16 @@ RUN npm config set registry https://registry.npmjs.org/
 
 COPY package*.json ./
 
-RUN rm -rf package-lock.json node_modules
 
-RUN npm install
+RUN npm install --omit=dev
 
 COPY . .
 
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+ENV NODE_ENV=production
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+  CMD curl --fail http://localhost:3000/health || exit 1
+
+CMD ["npm", "run", "start"]
