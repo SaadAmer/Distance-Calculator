@@ -4,7 +4,7 @@
  */
 
 import request from "supertest";
-import { app } from "./src/server.js";
+import { app } from "../../src/server.js";
 import { jest } from "@jest/globals";
 
 await jest.unstable_mockModule("./src/db.js", () => ({
@@ -23,8 +23,8 @@ await jest.unstable_mockModule("./src/utils.js", () => ({
   calculateDistance: jest.fn(() => 4500),
 }));
 
-const { pool } = await import("./src/db.js");
-const { geocode, calculateDistance } = await import("./src/utils.js");
+const { pool } = await import("../../src/db.js");
+const { geocode, calculateDistance } = await import("../../src/utils.js");
 
 beforeEach(() => {
   jest.clearAllMocks();

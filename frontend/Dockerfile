@@ -12,7 +12,7 @@ RUN rm -f /root/.npmrc ~/.npmrc
 RUN npm config set registry https://registry.npmjs.org/
 
 COPY package*.json ./
-RUN rm -rf package-lock.json node_modules
+
 RUN npm install
 
 COPY . .
