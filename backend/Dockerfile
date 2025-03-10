@@ -1,7 +1,5 @@
-# Use official Node.js image.
 FROM node:18
 
-# Set working directory inside container
 WORKDIR /app
 
 # Remove lines 10 through 13 in case you don't have a global npmrc

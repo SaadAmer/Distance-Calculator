@@ -1,6 +1,6 @@
 // File for the front end api
 
-const API_URL = "http://localhost:3000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 /**
  * Fetches the distance between a source and a destination for a given user.
