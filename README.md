@@ -8,6 +8,9 @@ All three have their own dockerfiles and are containerized and run via docker co
 
 ### Run Docker instance of Postgres Database
 Run the following command to run all three containers (backend, forntend and database)
+
+You will need Docker and Docker Compose to run this project
+
 ```bash
 docker compose up --build
 
@@ -16,9 +19,9 @@ docker compose up --build
 docker-compose up --build
 ```
 
-### Setting up a development environment locally
+navigate to http://localhost:4173/  on a web browser to test.
 
-You will need Docker and Docker Compose to run this project
+### Setting up a development environment locally
 
 Go into the backend and frontend directories and run the following command in each:
 
