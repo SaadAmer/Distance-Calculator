@@ -1,4 +1,7 @@
 // File for the front end api
+import log from 'loglevel';
+
+log.setLevel('debug');
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
@@ -12,6 +15,7 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
  * @throws {Error} If the API request fails or returns an error.
  */
 export async function getDistance(userId, source, destination) {
+  log.debug('Fetching distance:', { userId, source, destination });
   try {
     const response = await fetch(`${API_URL}/distance`, {
       method: "POST",
@@ -21,16 +25,16 @@ export async function getDistance(userId, source, destination) {
 
     if (!response.ok) {
       const errorData = await response.json();
-      console.error("Error from server:", errorData);
+      log.error('Error from server:', errorData);
       throw new Error(errorData.error || "Failed to fetch distance.");
     }
 
-    const data = await response.json()
-    console.log("Successfully received data:", data)
+    const data = await response.json();
+    log.debug('Successfully received distance data:', data);
     return data;
 
   } catch (error) {
-    console.error("Error fetching distance:", error);
+    log.error('Error fetching distance:', error, { userId, source, destination });
     throw error;
   }
 }
@@ -43,21 +47,22 @@ export async function getDistance(userId, source, destination) {
  * @throws {Error} If the API request fails.
  */
 export async function getHistory(userId) {
+  log.debug('Fetching history:', { userId });
   try {
-    console.log("Fetching History with ID", userId)
+    log.debug('Fetching History with ID', userId);
     const response = await fetch(`${API_URL}/history/${userId}`);
 
     if (!response.ok) {
-      const error = await response.text()
-      console.log("History Error", error)
+      const error = await response.text();
+      log.error('History error:', error, {userId});
       throw new Error("Failed to fetch history.");
     }
 
-    const data = await response.json()
-    console.log("History data", data)
+    const data = await response.json();
+    log.debug('History data:', data);
     return data;
   } catch (error) {
-    console.error("Error fetching history:", error);
+    log.error('Error fetching history:', error, { userId });
     throw error;
   }
 }

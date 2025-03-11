@@ -2,6 +2,9 @@
 	import { onMount } from 'svelte';
 	import { getHistory } from '../../lib/api.js';
 	import { roundToTwoDecimalPlaces } from '$lib/utils.js';
+    import log from 'loglevel';
+
+    log.setLevel('debug');
 
 	let history = [];
 	let error = null;
@@ -9,24 +12,25 @@
 
     onMount(() => {
         userId = sessionStorage.getItem('userId');
-        console.log("UserID on Mount", userId)
+        log.debug("UserID on Mount", { userId });
         if (userId) {
             fetchHistory(userId);
         } else {
             error = 'No user ID found in session storage.';
+            log.error(error);
         }
     });
 
 
     async function fetchHistory(id){
-        console.log("Fetching history for", id)
+        log.debug("Fetching history for", { id });
         if(!id) return;
         try {
 			history = await getHistory(id);
-            console.log("History Recieved", history)
+            log.debug("History Received", { history });
 		} catch (e) {
 			error = e.message || 'Network error fetching history.';
-            console.error(error)
+            log.error(error);
 		}
     }
 

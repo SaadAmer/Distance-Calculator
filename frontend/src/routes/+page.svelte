@@ -4,6 +4,9 @@
 	import { getDistance } from '../lib/api.js';
 	import { roundToTwoDecimalPlaces } from '$lib/utils.js';
 	import { onMount } from 'svelte';
+	import log from 'loglevel';
+
+    log.setLevel('debug');
 
 	let source = '';
 	let destination = '';
@@ -20,10 +23,12 @@
         const storedId = sessionStorage.getItem('userId');
         if (storedId) {
             storedUserId.set(storedId);
+			log.debug('User ID loaded from session storage:', storedId);
         } else {
             const newId = generateUniqueId();
             sessionStorage.setItem('userId', newId);
             storedUserId.set(newId);
+			log.debug('New user ID generated and stored:', newId);
         }
     });
 
@@ -35,7 +40,9 @@
     }
 
 	const fetchDistance = async () => {
+		log.debug('Calculate Distance used:', { source, destination, userId: $userId });
 		if (!source.trim() || !destination.trim() || !$userId) {
+			log.warn('Missing input fields.');
 			errorMessage.set('Please enter user ID, source, and destination.');
 			loading.set(false);
 			return;
@@ -45,12 +52,15 @@
 		distanceKm.set(null);
 		distanceMiles.set(null);
 		loading.set(true);
+		log.debug('Getting the  distance', { userId: $userId, source, destination });
 
 		try {
 			const data = await getDistance($userId, source, destination);
 			distanceKm.set(roundToTwoDecimalPlaces(data.distance_km));
 			distanceMiles.set(roundToTwoDecimalPlaces(data.distance_miles));
+			log.debug('Distance:', { distanceKm: $distanceKm, distanceMiles: $distanceMiles });
 		} catch (error) {
+			log.error('Error fetching distance:', error, { userId: $userId, source, destination });
 			errorMessage.set(error.message || 'Network error. Please try again.');
 		} finally {
 			loading.set(false);
