@@ -5,6 +5,8 @@ It has a backend, a frontend and database (PostgreSQL)
 
 All three have their own dockerfiles and are containerized and run via docker compose.
 
+In a real application, the environment variables ould have been gotten froma secure secrets vault.
+
 The application has been deployed on AWS and can be accessed at http://13.40.144.220:4173/
 
 
