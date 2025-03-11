@@ -2,7 +2,7 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Remove lines 10 through 13 in case you don't have a global npmrc
+# Remove lines 8 through 11 in case you don't have a global npmrc
 # unlike me on my machine
 # Remove the global npmrc file (prevents override from ~/.npmrc)
 RUN rm -f /root/.npmrc
