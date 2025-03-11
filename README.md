@@ -5,6 +5,14 @@ It has a backend, a frontend and database (PostgreSQL)
 
 All three have their own dockerfiles and are containerized and run via docker compose.
 
+The application has been deployed on AWS and can be accessed at http://13.40.144.220:4173/
+
+
+### Available Endpoints:
+
+- Distance: Calculates the distance between two addresses. Stores successful queries.
+
+- History: Returns a table of the user's successful queries.
 
 ### Run a Dockerized instance of the Distance Application
 Run the following command to run all three containers (backend, forntend and database)
